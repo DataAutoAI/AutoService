@@ -1,0 +1,37 @@
+# Ignore AutoGluon model files
+AutogluonModels/
+
+# Ignore large generated files
+*.h5
+*.joblib
+*.npy
+*.pth
+
+# Ignore Python virtual environments
+venv/
+env/
+.venv/
+
+# Ignore IDE/project files
+.idea/
+*.iml
+*.ipr
+*.iws
+*.vscode/
+*.DS_Store
+
+# Ignore build/output files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+dist/
+build/
+*.egg-info/
+
+# Ignore OS generated files
+*.swp
+*~
+
+# Ignore logs
+*.log

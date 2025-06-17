@@ -1,0 +1,94 @@
+{
+    "data": {
+        "21": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 30,
+                "Fare": 8.05,
+                "Embarked": "S"
+            }
+        },
+        "22": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 25,
+                "Fare": 55.0,
+                "Embarked": "C"
+            }
+        },
+        "23": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "male",
+                "Age": 40,
+                "Fare": 15.0,
+                "Embarked": "S"
+            }
+        },
+        "24": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "female",
+                "Age": 22,
+                "Fare": 7.8958,
+                "Embarked": "Q"
+            }
+        },
+        "25": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "male",
+                "Age": 45,
+                "Fare": 83.475,
+                "Embarked": "S"
+            }
+        },
+        "26": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 19,
+                "Fare": 7.65,
+                "Embarked": "S"
+            }
+        },
+        "27": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "female",
+                "Age": 29,
+                "Fare": 10.5,
+                "Embarked": "S"
+            }
+        },
+        "28": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 36,
+                "Fare": 7.2292,
+                "Embarked": "C"
+            }
+        },
+        "29": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 32,
+                "Fare": 76.2917,
+                "Embarked": "C"
+            }
+        },
+        "30": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 23,
+                "Fare": 7.8958,
+                "Embarked": "S"
+            }
+        }
+    }
+}
