@@ -7,7 +7,8 @@ import json
 import numpy as np
 import os
 import ray
-
+import time
+import uuid
 app = Flask(__name__)
 
 # Configure upload folder
@@ -97,7 +98,7 @@ def upload_file():
         # Validate file type
         if not allowed_file(file.filename):
             return jsonify({'error': 'File type not allowed, only JSON allowed'}), 400
-        
+
         # Save file
         filename = secure_filename(file.filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -112,50 +113,62 @@ def upload_file():
         print("Label name:", label_name)
         print("Train DataFrame:\n", train_data)
 
-        
-        # Read test JSON (assume test.json exists)
-        # with open('test.json', 'r') as file:
-        #     test_json = json.load(file)
-        
-        # # Handle test data
-        # test_data, _ = flatten_json(test_json)
-        # print("Test DataFrame:\n", test_data)
-        
-        # test_data = test_data.drop(columns=[label_name], errors='ignore')
-        # print("Test DataFrame (sau khi bỏ nhãn):\n", test_data)
-        
+                
         # Handle features
         feature_generator = AutoMLPipelineFeatureGenerator()
         feature_generator.fit(train_data.drop(columns=[label_name]))
+       
+       
+        model_path_id = request.form.get('model_id')
+        result_model_id = model_path_id
+        if not model_path_id: 
+            model_id = uuid.uuid4()
+            result_model_id = model_id
+            model_path = f'models/ag_model_{model_id}'
+        else :
+            model_path = f'models/ag_model_{model_path_id}'
         
+        # Ensure model_path directory can be created
+        os.makedirs(os.path.dirname(model_path) or 'models', exist_ok=True)
+
+        if not model_path:
+            predictor = TabularPredictor(
+                label=label_name            )
+        else :
+             predictor = TabularPredictor(
+                label=label_name,
+                path=model_path
+            )
         # Train model
-        predictor = TabularPredictor(
-            label=label_name,
-        )
+    
         predictor.fit(
             train_data,
             presets='best',
-            time_limit=3600,  # 1 hour for max accuracy
-            hyperparameter_tune_kwargs='auto',
+            time_limit=15, 
+            hyperparameter_tune_kwargs='auto',dynamic_stacking=False, num_stack_levels=1
         )
         print("flag check this")
         # Get model information
+
+        os.makedirs('models', exist_ok=True)
+        with open('models/model_info.json', 'w') as f:
+            json.dump({
+                'model_path': model_path,
+                'label_name': label_name,
+                'last_updated': time.strftime("%Y-%m-%d %H:%M:%S")
+            }, f)
+
+
         model_info = {
             'best_model': predictor.model_best,
-            'model_names': predictor.model_names,
+            'model_names': predictor.model_names(),
             'leaderboard': predictor.leaderboard().to_dict(orient='records'),
             'train_samples': len(train_data),
             'features': list(train_data.columns),
             'model_path': predictor.path,
+            'model_id': result_model_id ,
             'total_time': predictor.fit_summary().get('total_time', 'Unknown'),
-            'train_accuracy': predictor.evaluate(train_data)['accuracy'],
-            'best_model_params': predictor.info().get('model_info', {}).get(predictor.get_model_best(), {}).get('hyperparameters', {}),
-            'data_summary': {
-                'num_samples': len(train_json['data']),
-                'label_name': label_name,
-                'feature_columns': [col for col in train_data.columns if col != label_name and col != 'id'],
-                'sample_data': list(train_json['data'].values())[:3]  # Return first 3 samples
-            }
+            'train_accuracy': predictor.evaluate(train_data).get('accuracy', 'Unknown')
         }
         
         # Shutdown Ray to avoid conflicts
@@ -165,35 +178,43 @@ def upload_file():
             'message': 'Model trained successfully',
             'model_info': model_info
         }), 200
-    #     predictor.fit(
-    #         train_data,
-    #         presets='best',
-    #         time_limit=600,  # 10 minutes
-    #     )
-        
-    #     # Predict
-    #     # predictions = predictor.predict(test_data)
-        
-    #     # Prepare response
-    #     # output = pd.DataFrame({'id': test_data['id'], label_name: predictions})
-    # # Get model information
-    #     model_info = {
-    #         'best_model': predictor.model_best,
-    #         'model_names': predictor.model_names,
-    #         'leaderboard': predictor.leaderboard().to_dict(orient='records'),
-    #         'train_samples': len(train_data),
-    #         'features': list(train_data.columns),
-    #         'model_path': predictor.path,
-    #         'fit_summary': predictor.fit_summary().get('total_time', 'Unknown'),
-    #         'data':train_json
-    #     }
-    #     return jsonify({
-    #         'message': 'File processed successfully',
-    #         'model_info': model_info
-    #         # 'predictions': output.to_dict(orient='records')
-    #     }), 200
         
     except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/test-model', methods=['POST'])
+def test_model():
+    try:
+        # Get model_id from query parameter
+      
+        model_id = request.form.get('model_id')
+        if not model_id :
+            return jsonify({
+            'message': 'model_id is not empty',
+        }), 400 
+
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file part in the request'}), 400
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': 'No selected file'}), 400
+        
+        # Validate file type
+        if not allowed_file(file.filename):
+            return jsonify({'error': 'File type not allowed, only JSON allowed'}), 400
+
+        # Save file
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        
+        return jsonify({
+            'message': 'Prediction completed successfully',
+        }), 200
+        
+    except Exception as e:
+        if ray.is_initialized():
+            ray.shutdown()
         return jsonify({'error': str(e)}), 500
 
 if __name__ == "__main__":

@@ -8,7 +8,8 @@ import pandas as pd
 import json
 import numpy as np
 from autogluon.features import AutoMLPipelineFeatureGenerator
-from test2 import flatten_json
+
+from server3 import flatten_json
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'

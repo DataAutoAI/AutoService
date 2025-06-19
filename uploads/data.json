@@ -239,6 +239,366 @@
             "label": {
                 "checker": 0
             }
+        },
+        "21": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "female",
+                "Age": 29,
+                "Fare": 10.5,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "22": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 25,
+                "Fare": 7.05,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "23": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 42,
+                "Fare": 52.0,
+                "Embarked": "C"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "24": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 17,
+                "Fare": 8.6625,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "25": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "male",
+                "Age": 34,
+                "Fare": 13.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "26": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 30,
+                "Fare": 86.5,
+                "Embarked": "C"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "27": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 21,
+                "Fare": 7.7333,
+                "Embarked": "Q"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "28": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "female",
+                "Age": 28,
+                "Fare": 26.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "29": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 19,
+                "Fare": 7.8958,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "30": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 36,
+                "Fare": 135.6333,
+                "Embarked": "C"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "31": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 23,
+                "Fare": 7.8542,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "32": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "female",
+                "Age": 22,
+                "Fare": 10.5,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "33": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 40,
+                "Fare": 7.225,
+                "Embarked": "C"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "34": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 45,
+                "Fare": 83.475,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "35": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 26,
+                "Fare": 7.8958,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "36": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "male",
+                "Age": 32,
+                "Fare": 13.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "37": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "female",
+                "Age": 15,
+                "Fare": 14.4542,
+                "Embarked": "C"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "38": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "male",
+                "Age": 48,
+                "Fare": 52.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "39": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 24,
+                "Fare": 7.8958,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "40": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "female",
+                "Age": 27,
+                "Fare": 21.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "41": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 30,
+                "Fare": 7.225,
+                "Embarked": "C"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "42": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 33,
+                "Fare": 90.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "43": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 28,
+                "Fare": 7.775,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "44": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "male",
+                "Age": 29,
+                "Fare": 13.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "45": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "female",
+                "Age": 18,
+                "Fare": 8.6625,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "46": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "male",
+                "Age": 50,
+                "Fare": 28.7125,
+                "Embarked": "C"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "47": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 21,
+                "Fare": 7.75,
+                "Embarked": "Q"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "48": {
+            "feature": {
+                "Pclass": 2,
+                "Sex": "female",
+                "Age": 25,
+                "Fare": 26.0,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
+        },
+        "49": {
+            "feature": {
+                "Pclass": 3,
+                "Sex": "male",
+                "Age": 36,
+                "Fare": 7.8958,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 0
+            }
+        },
+        "50": {
+            "feature": {
+                "Pclass": 1,
+                "Sex": "female",
+                "Age": 40,
+                "Fare": 61.175,
+                "Embarked": "S"
+            },
+            "label": {
+                "checker": 1
+            }
         }
     },
     "lable": "checker"
